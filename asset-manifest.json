@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/interactive-logo/static/css/main.afc67b29.css",
+    "main.js": "/interactive-logo/static/js/main.f5948bad.js",
+    "index.html": "/interactive-logo/index.html",
+    "main.afc67b29.css.map": "/interactive-logo/static/css/main.afc67b29.css.map",
+    "main.f5948bad.js.map": "/interactive-logo/static/js/main.f5948bad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.afc67b29.css",
+    "static/js/main.f5948bad.js"
+  ]
+}
