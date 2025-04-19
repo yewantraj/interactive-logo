@@ -20,7 +20,7 @@ const ProfileContainer = () => {
   const [profileData] = useState({
     name: "Yewantraj Karki",
     title: "Software Engineer",
-    image: "/imagesprofile-image.jpg",
+    image: "/images/profile-image.jpg",
     bio: "Software\u00A0engineer\u00A0 specializing\u00A0 in\u00A0 modern\u00A0 web\u00A0 development,\u00A0 with\u00A0 expertise\u00A0 in\u00A0 JavaScript,\u00A0 React,\u00A0 and Node.js.\u00A0 Passionate\u00A0 about\u00A0 crafting\u00A0 efficient,\u00A0 user-centric\u00A0 applications\u00A0 through \u00A0clean\u00A0 code\u00A0 and \u00A0scalable \u00A0architecture.\u00A0 Committed\u00A0 to \u00A0continuous\u00A0 learning\u00A0 and \u00A0collaborative\u00A0 problem-solving.\u00A0 Outside\u00A0 of\u00A0 development,\u00A0 I\u00A0 contribute\u00A0 to\u00A0 open-source \u00A0projects\u00A0 and\u00A0 explore\u00A0 emerging\u00A0 technologies.",
     email: "yewantkarki18@gmail.com",
     phone: "(437) 607-1314",
