@@ -1,74 +1,97 @@
+/* Base Styles */
 .profile-image-container {
-    position: relative;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    will-change: transform, filter;
-    background-color: #fff;
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fallback for broken images */
+.profile-image-container .image-fallback {
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Overlay Styles */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.7)
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+  opacity: 0;
+}
+
+.overlay-content {
+  text-align: center;
+  color: #fff;
+  transform: translateY(20px); /* Initial state for animation */
+}
+
+.overlay-content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Responsive Adaptations */
+@media (max-width: 768px) {
+  .profile-image-container {
+    width: 180px;
+    height: 180px;
   }
-  
-  .profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.7)
-    );
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 20px;
-  }
-  
-  .overlay-content {
-    text-align: center;
-    color: #fff;
+}
+
+@media (max-width: 480px) {
+  .profile-image-container {
+    width: 150px;
+    height: 150px;
   }
   
   .overlay-content h3 {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .profile-image-container * {
+    animation: none !important;
+    transition: none !important;
   }
   
-  /* Responsive adaptations */
-  @media (max-width: 768px) {
-    .profile-image-container {
-      width: 180px;
-      height: 180px;
-    }
+  .image-overlay {
+    opacity: 1; /* Always show overlay if motion is reduced */
   }
   
-  @media (max-width: 480px) {
-    .profile-image-container {
-      width: 150px;
-      height: 150px;
-    }
-    
-    .overlay-content h3 {
-      font-size: 0.9rem;
-    }
+  .overlay-content {
+    transform: translateY(0);
   }
-  
-  /* Accessibility - respect reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    .profile-image-container,
-    .profile-image,
-    .image-overlay {
-      transition: none;
-    }
-  }
+}

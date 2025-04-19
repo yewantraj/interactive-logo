@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/ProfileImage.css';
 
@@ -12,42 +12,31 @@ const ProfileImage = ({
   settings
 }) => {
   const imageRef = useRef(null);
+  const [imgError, setImgError] = useState(false);
 
-  // Animation timing configuration based on context settings
   const animationConfig = {
     duration: settings.hoverDuration,
     ease: settings.easing.hover,
   };
 
-  // Define hover animation variants
   const imageVariants = {
     initial: {
       scale: 1,
       filter: 'grayscale(80%)',
-      transition: {
-        duration: animationConfig.duration,
-        ease: animationConfig.ease
-      }
+      transition: animationConfig
     },
     hover: {
-      scale: 1.05,
+      scale: settings.reducedMotion ? 1.02 : 1.05,
       filter: 'grayscale(0%)',
-      transition: {
-        duration: animationConfig.duration,
-        ease: animationConfig.ease
-      }
+      transition: animationConfig
     }
   };
-
-  if (settings.reducedMotion) {
-    imageVariants.hover.scale = 1.02;
-  }
 
   const handleClick = () => {
     if (settings.enableSound) {
       const sound = new Audio('/click-sound.mp3');
       sound.volume = 0.2;
-      sound.play();
+      sound.play().catch(e => console.error("Sound playback failed:", e));
     }
     onExpand();
   };
@@ -63,16 +52,22 @@ const ProfileImage = ({
       role="button"
       aria-label={`View ${alt}'s profile`}
     >
-      <motion.img
-        ref={imageRef}
-        variants={imageVariants}
-        src={imageUrl}
-        alt={alt}
-        className="profile-image"
-        loading="lazy"
-      />
+      {imgError ? (
+        <div className="image-fallback">
+          <span>{alt}</span>
+        </div>
+      ) : (
+        <motion.img
+          ref={imageRef}
+          variants={imageVariants}
+          src={imageUrl}
+          alt={alt}
+          className="profile-image"
+          loading="lazy"
+          onError={() => setImgError(true)}
+        />
+      )}
 
-      {/* Text overlay that appears on hover */}
       <motion.div
         className="image-overlay"
         initial={{ opacity: 0 }}
