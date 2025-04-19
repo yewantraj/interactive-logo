@@ -1,0 +1,100 @@
+.social-links-container {
+    margin-bottom: 20px;
+  }
+  
+  .social-links-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+    color: #34495e;
+    text-decoration: none;
+  }
+  
+  .social-link:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    color: inherit;
+  }
+  
+  .social-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  /* Social network specific colors */
+  .social-link[href*="linkedin"] {
+    color: #0077b5;
+    background-color: rgba(0, 119, 181, 0.1);
+  }
+  
+  .social-link[href*="github"] {
+    color: #333;
+    background-color: rgba(51, 51, 51, 0.1);
+  }
+  
+  .social-link[href*="twitter"] {
+    color: #1da1f2;
+    background-color: rgba(29, 161, 242, 0.1);
+  }
+  
+  .social-link[href*="instagram"] {
+    color: #e1306c;
+    background-color: rgba(225, 48, 108, 0.1);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .social-links-container h3 {
+      font-size: 1.1rem;
+    }
+    
+    .social-link {
+      padding: 6px 12px;
+    }
+    
+    .social-name {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .social-links {
+      justify-content: flex-start;
+    }
+  }
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .social-link {
+      transition: none;
+    }
+    
+    .social-link:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }

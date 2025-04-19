@@ -1,0 +1,134 @@
+.expanded-profile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .expanded-profile-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-image-large-container {
+    flex-shrink: 0;
+    margin-right: 30px;
+  }
+  
+  .profile-image-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-title-container {
+    flex: 1;
+  }
+  
+  .profile-name {
+    font-size: 2.4rem;
+    margin: 0 0 5px;
+    color: #2c3e50;
+  }
+  
+  .profile-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #7f8c8d;
+    margin: 0;
+  }
+  
+  .profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .contact-info {
+    margin-top: 20px;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .contact-info p {
+    margin-bottom: 10px;
+    color: #34495e;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .expanded-profile-container {
+      padding: 30px;
+    }
+    
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .profile-image-large-container {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+    
+    .profile-name {
+      font-size: 2rem;
+    }
+    
+    .profile-content {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .expanded-profile-container {
+      padding: 20px;
+    }
+    
+    .profile-name {
+      font-size: 1.8rem;
+    }
+    
+    .profile-title {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .expanded-profile-overlay,
+    .expanded-profile-container,
+    .profile-header,
+    .profile-content {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
